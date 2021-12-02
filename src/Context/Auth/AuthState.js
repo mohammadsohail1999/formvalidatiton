@@ -5,6 +5,7 @@ const AuthState = ({ children }) => {
   const [auth, setAuth] = useState({
     facebook: false,
     google: false,
+    fireBaseLogin: false,
   });
 
   return (

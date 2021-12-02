@@ -19,7 +19,7 @@ const GoogleLoginComp = ({ renderComp }) => {
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Login"
         render={renderComp}
-        isSignedIn={true}
+        // isSignedIn={true}
         onSuccess={loginWithGoogleSuccess}
         onFailure={loginwithGoogleFailure}
         cookiePolicy={"single_host_origin"}

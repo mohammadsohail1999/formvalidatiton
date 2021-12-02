@@ -7,6 +7,7 @@ import { LoginvalidationSchema } from "../../Schemas/loginSchema";
 import { Google } from "@mui/icons-material";
 import GoogleLoginComp from "../../Components/GoogleAuth/GoogleLogin";
 import FBLogin from "../../Components/FacebookAuth/FBLogin";
+import GoogleFireBaseLogin from "../../Components/FirebaseAuth/GoogleAuthProvider";
 
 const Login = () => {
   const {
@@ -90,6 +91,8 @@ const Login = () => {
             </Button>
           )}
         />
+
+        <GoogleFireBaseLogin />
 
         <div style={{ margin: "1rem 0" }}>
           Did'nt have a account ? <Link to="/signUp">Register</Link>

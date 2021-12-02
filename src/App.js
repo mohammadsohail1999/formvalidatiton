@@ -3,11 +3,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./page/Signup/Signup";
 import Login from "./page/Login/Login";
 import { GetAuthState } from "./Context/Auth/AuthContext";
+import { firebaseAuth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
 
 function App() {
   const { auth } = GetAuthState();
 
-  console.log(auth);
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (user) => {
+      if (user) {
+        console.log("user", user);
+      } else {
+        console.log("user is logged out");
+      }
+    });
+  }, []);
 
   return (
     <div className="App">
