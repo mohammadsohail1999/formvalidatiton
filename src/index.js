@@ -2,16 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import AuthState from "./Context/Auth/AuthState";
-// import Practice from "./Components/Practice";
+import { Provider } from "react-redux";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthState>
+    <Provider store={store}>
       <App />
-    </AuthState>
-
-    {/* <Practice /> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

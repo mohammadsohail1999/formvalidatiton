@@ -33,7 +33,7 @@ const Signup = () => {
     validationSchema,
   });
 
-  console.log(values);
+  // console.log(values);
 
   return (
     <div className="form_container">

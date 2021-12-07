@@ -1,20 +1,27 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Button } from "@mui/material";
-import { GetAuthState } from "../../Context/Auth/AuthContext";
+import { useDispatch } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import app from "../../firebase";
+import { FirebaseLoginsuccess } from "../../Features/AuthSlice";
 const provider = new GoogleAuthProvider();
 const firebaseauth = getAuth();
 
 const GoogleFireBaseLogin = () => {
-  const { setAuth, auth } = GetAuthState();
+  const dispatch = useDispatch();
 
   const signIn = () => {
     signInWithPopup(firebaseauth, provider)
       .then((res) => {
-        console.log(res.user);
-        setAuth({ ...auth, fireBaseLogin: true });
+        const { uid, photoURL, email, displayName } = res.user;
+        const authObj = {
+          uid,
+          photoURL,
+          email,
+          displayName,
+        };
+        dispatch(FirebaseLoginsuccess(authObj));
       })
       .catch((err) => {
         console.log(err);

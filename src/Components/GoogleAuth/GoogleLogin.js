@@ -1,13 +1,14 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
-import { GetAuthState } from "../../Context/Auth/AuthContext";
+// import { GetAuthState } from "../../Context/Auth/AuthContext";
 
 const GoogleLoginComp = ({ renderComp }) => {
-  const { setAuth, auth } = GetAuthState();
+  // const { setAuth, auth } = GetAuthState();
 
   const loginWithGoogleSuccess = (res) => {
-    setAuth({ ...auth, google: true });
-    console.log(res.profileObj);
+    // setAuth({ ...auth, google: true });
+    console.log(res);
+    // console.log(res.profileObj);
   };
   const loginwithGoogleFailure = (res) => {
     console.log(res);
